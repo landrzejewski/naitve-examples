@@ -17,7 +17,7 @@
     "type": "modules",
     "jsSrcsDir": "specs",
     "android": {
-      "javaPackageName": "pl.training"
+      "javaPackageName": "com.anonymous.nativeexample"
     }
   },
   "scripts": {

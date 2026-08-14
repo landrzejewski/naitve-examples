@@ -7,17 +7,18 @@ import {useEffect, useState} from "react";
 export default function App() {
 
   const [date, setDate] = useState<string>();
+  const [asyncDate, setAsyncDate] = useState<string>();
 
   useEffect(() => {
-     const date = NativeLocalDate.getDate("dd-MM-yyyy");
-     setDate(date);
+    setDate(NativeLocalDate.getDate("dd-MM-yyyy"));
+    NativeLocalDate.getDateAsync("yyyy-MM-dd HH:mm:ss").then(setAsyncDate);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>sync: {date}</Text>
+      <Text>async: {asyncDate}</Text>
       <StatusBar style="auto" />
-      <Text>{date}</Text>
     </View>
   );
 }
